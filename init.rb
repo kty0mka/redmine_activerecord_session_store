@@ -7,4 +7,5 @@ Redmine::Plugin.register :redmine_activerecord_session_store do
   author_url 'http://nilscaspar.ch/'
 
   RedmineApp::Application.config.session_store :active_record_store, :key => '_redmine_session'
+  ActiveRecord::Base.logger.class.include ActiveSupport::LoggerSilence
 end
