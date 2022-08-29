@@ -5,4 +5,6 @@ Redmine::Plugin.register :redmine_activerecord_session_store do
   version '0.0.2'
   url 'https://github.com/kty0mka/redmine_activerecord_session_store'
   RedmineApp::Application.config.session_store :active_record_store, :key => '_redmine_session'
+  RedmineApp::Application.logger = ActiveSupport::Logger.new(STDOUT)
+  RedmineApp::Application.config.logger = ActiveSupport::TaggedLogging.new(logger)
 end
